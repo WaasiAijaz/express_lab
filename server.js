@@ -5,6 +5,13 @@ app.set('view engine', 'ejs');
 
 app.get('/', (req, res)=>{
     console.log('Here');
-    res.render("index");
+    res.render("index", {user:"Waasi!"});
 });//this function will run when someone goes to the root folder
+app.post('/users', (req, res)=>{
+    res.send('User List');
+});
+app.get('/users/new', (req, res)=>{
+    res.send('New User Form');
+});
+
 app.listen(3030);
