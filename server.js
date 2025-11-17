@@ -1,12 +1,21 @@
 const express = require('express');
 const userRouter = require('./routes/users');
 const app = express(); //Calling this function sets up a server
-app.set('view engine', 'ejs');''
+app.set('view engine', 'ejs');
+app.use(express.static("public"));
+app.use(express.urlencoded({extended:true}));
+// app.use(logger);
 app.use('/users', userRouter);
 
 app.get('/', (req, res)=>{
     console.log('Here');
     res.render("index", {user:"Waasi!"});
 });//this function will run when someone goes to the root folder
-
 app.listen(3030);
+app.get('/new', (req,res)=>{
+    res.render('users/new', {firstName: "Please enter your first name"});
+});
+function logger(req,res,next){
+    console.log(`Page Accessed: ${req.originalUrl}`);
+    next();
+};
