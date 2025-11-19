@@ -5,15 +5,25 @@ const router = express.Router();
 router.get('/', (req, res)=>{
     res.render(`users/list`, {users:users});
 });
-router.get('/new', (req, res)=>{
-    res.send('New User Form');
+router.get('/new', (req,res)=>{
+    res.render('users/new', {firstName: ""});
 });
 router.post('/',(req,res)=>{
-    const name = req.body.firstName;
-    const isValid = firstName !=="";
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
+    const age = req.body.age;
+    const gender = req.body.gender;
+
+    const isValid = firstName !=="" && lastName!=="";
     if(isValid){
-    console.log(`Adding User: ${name}`);
-    users.push({name:firstName});
+
+    console.log(`Adding User: ${firstName}`);
+    users.push({
+        firstName:firstName,
+        lastName: lastName,
+        gender: gender,
+        age: age,
+    });
     console.log(`New Set of Users: ${users}`);
     res.send("User Created!");
     }

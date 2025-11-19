@@ -12,9 +12,7 @@ app.get('/', (req, res)=>{
     res.render("index", {user:"Waasi!"});
 });//this function will run when someone goes to the root folder
 app.listen(3030);
-app.get('/new', (req,res)=>{
-    res.render('users/new', {firstName: "Please enter your first name"});
-});
+
 function logger(req,res,next){
     console.log(`Page Accessed: ${req.originalUrl}`);
     next();
