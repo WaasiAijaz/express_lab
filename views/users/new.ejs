@@ -6,31 +6,25 @@
 <body>
   <h1>Register User</h1>
   <form action="/users" method = "post">
-    <fieldset>
+     <fieldset>
       <legend>Name</legend>
-      <label>
-      First Name<input type="text" name ="firstName" value = "<%= firstName %>">
-    </label>
-    <br>
-    <label for="">
-      Last Name<input type="text" name ="lastName" value = "<%= lastName %>">
-    </label>
+      <label for="firstName">First Name</label>
+      <input id="firstName" name="firstName" value="<%= firstName %>">
+      <br>
+      <label for="lastName">Last Name</label>
+      <input id="lastName" name="lastName" value="<%= lastName %>">
     </fieldset>
     <br>
     <fieldset>
       <legend>Gender</legend>
-      <label for="">
-      Male<input type="radio" name="gender" value="Male">
-    </label>
-
-    <label for="">
-         Female<input type="radio" name="gender" value="Female">
-    </label>
+      <input id="genderMale" type="radio" name="gender" value="Male">
+      <label for="genderMale">Male</label>
+      <input id="genderFemale" type="radio" name="gender" value="Female">
+      <label for="genderFemale">Female</label>
     </fieldset>
     <br>
-    <label for="">
-      Age<input type="number" name="age">
-    </label>
+    <label for="age">Age</label>
+    <input id="age" type="number" name="age">
     <br>
     <button type="submit">Submit</button>
 
