@@ -1,6 +1,7 @@
 const express = require('express');
 const userRouter = require('./routes/users');
 const app = express(); //Calling this function sets up a server
+app.use(express.json());
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(express.urlencoded({extended:true}));

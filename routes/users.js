@@ -3,10 +3,10 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res)=>{
-    res.render(`users/list`, {users:users});
+    res.render(`users/list`, {users: users});
 });
 router.get('/new', (req,res)=>{
-    res.render('users/new', {firstName: ""});
+    res.render('users/new', {firstName: "", lastName: "" });
 });
 router.post('/',(req,res)=>{
     const firstName = req.body.firstName;
@@ -29,7 +29,7 @@ router.post('/',(req,res)=>{
     }
     else{
         console.log("Error adding user!");
-        res.render("users/new", {firstName: firstName});
+        res.render("users/new", {firstName: firstName, lastName: lastName});
     }
 });
 // router.get('/:id', (req,res)=>{
